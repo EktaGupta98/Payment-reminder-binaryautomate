@@ -1,6 +1,6 @@
 # PayTrack – Payment Reminder System
 
-> Binary Automates – Software Engineering Internship Take Home Assignment
+> Binary Automates 
 
 A mini payment reminder system for small businesses to track who owes money, manage invoice/payment status, and send real email reminders.
 
