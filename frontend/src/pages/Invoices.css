@@ -1,0 +1,125 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-search {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 12px;
+  color: var(--text3);
+}
+.search-input {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+}
+.search-input:focus { box-shadow: none !important; }
+
+.filter-right {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  width: auto;
+  min-width: 130px;
+  cursor: pointer;
+}
+
+.status-select {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  outline: none;
+}
+.status-select:focus { border-color: var(--accent); }
+
+.loading-state, .empty-state {
+  padding: 48px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .filter-right { flex-direction: column; }
+  .filter-select { min-width: unset; }
+}
+
+/* ─── Validation ─────────────────────────────────────────────────────────────── */
+.input-error { border-color: var(--red) !important; }
+.input-error:focus { box-shadow: 0 0 0 3px var(--red-dim) !important; }
+.field-error { font-size: 12px; color: var(--red); margin-top: 3px; display: block; }
+.field-warning { font-size: 12px; color: var(--orange); margin-top: 3px; display: block; }
+
+/* ─── Bulk action bar ────────────────────────────────────────────────────────── */
+.bulk-bar {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg2);
+  border: 1px solid var(--accent);
+  border-radius: 40px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 50;
+  box-shadow: 0 8px 32px rgba(108,99,255,0.3);
+  animation: slideUpBar 0.2s ease;
+}
+@keyframes slideUpBar {
+  from { transform: translateX(-50%) translateY(16px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+.bulk-count { font-size: 14px; color: var(--accent2); font-weight: 600; font-family: var(--font-mono); }
+
+/* ─── Checkboxes ─────────────────────────────────────────────────────────────── */
+.cb { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+.row-selected td { background: var(--accent-dim) !important; }
+
+/* ─── Modal form row ─────────────────────────────────────────────────────────── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ─── Modal structure ────────────────────────────────────────────────────────── */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.modal-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); }
+.modal-close {
+  background: none; border: none; color: var(--text3); font-size: 18px;
+  cursor: pointer; padding: 4px 8px; border-radius: 6px;
+}
+.modal-close:hover { background: var(--bg3); color: var(--text); }
+.modal-body { display: flex; flex-direction: column; gap: 14px; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+  .bulk-bar { width: calc(100% - 32px); border-radius: 12px; flex-wrap: wrap; }
+}
